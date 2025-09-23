@@ -1,13 +1,18 @@
-// src/App.jsx
-import { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import Dashboard from "./pages/Dashboard";
 import Accounts from "./pages/Accounts";
 import Navbar from "./components/common/NavBar";
 
 function App() {
-  const [accounts, setAccounts] = useState([]);
+  const [accounts, setAccounts] = useState(() => {
+    return JSON.parse(localStorage.getItem("accounts")) || [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("accounts", JSON.stringify(accounts));
+  }, [accounts]);
 
   const addAccount = (account) => {
     const exists = accounts.some(
@@ -28,23 +33,25 @@ function App() {
   };
 
   return (
-    <div className="bg-gray-900 font-sans">
-      <Navbar />
+    <div className="bg-gray-900 font-sans flex min-h-screen">
+      <Navbar className="flex-shrink-0" />
 
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route
-          path="/accounts"
-          element={
-            <Accounts
-              accounts={accounts}
-              onAddAccount={addAccount}
-              onUpdate={updateAccount}
-              onDelete={deleteAccount}
-            />
-          }
-        />
-      </Routes>
+      <main className="flex-1 p-6 text-white">
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route
+            path="/accounts"
+            element={
+              <Accounts
+                accounts={accounts}
+                onAddAccount={addAccount}
+                onUpdate={updateAccount}
+                onDelete={deleteAccount}
+              />
+            }
+          />
+        </Routes>
+      </main>
     </div>
   );
 }
