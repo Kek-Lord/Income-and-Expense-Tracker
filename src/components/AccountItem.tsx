@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AccountItem({ account, onUpdate, onDelete }) {
+export function AccountItem({ account, onUpdate, onDelete }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(account.name);
   const [editType, setEditType] = useState(account.type);
@@ -75,5 +75,3 @@ function AccountItem({ account, onUpdate, onDelete }) {
     </li>
   );
 }
-
-export default AccountItem;

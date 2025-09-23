@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Dashboard = () => {
   return (
     <div className="min-h-screen bg-grey-900">
@@ -10,5 +8,3 @@ export const Dashboard = () => {
     </div>
   )
 }
-
-export default Dashboard;

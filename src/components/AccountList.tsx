@@ -1,6 +1,6 @@
-import AccountItem from "./AccountItem";
+import { AccountItem } from "./AccountItem";
 
-function AccountList({ accounts, onUpdate, onDelete }) {
+export function AccountList({ accounts, onUpdate, onDelete }) {
   if (accounts.length === 0) 
     return <p className="text-gray-100">No accounts yet</p>;
 
@@ -17,5 +17,3 @@ function AccountList({ accounts, onUpdate, onDelete }) {
     </ul>
   );
 }
-
-export default AccountList;

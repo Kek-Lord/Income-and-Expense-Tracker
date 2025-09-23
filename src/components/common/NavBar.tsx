@@ -1,4 +1,4 @@
-export default function Navbar() {
+export function NavBar() {
   const currentPath = window.location.pathname;
 
   return (

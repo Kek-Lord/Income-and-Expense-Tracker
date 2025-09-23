@@ -1,7 +1,7 @@
-import AccountForm from "../components/AccountForm";
-import AccountList from "../components/AccountList";
+import { AccountForm } from "../components/AccountForm";
+import { AccountList } from "../components/AccountList";
 
-function Accounts({ accounts, onAddAccount, onUpdate, onDelete }) {
+export function Accounts({ accounts, onAddAccount, onUpdate, onDelete }) {
   return (
     <div className="min-h-screen bg-gray-900 text-gray-800 p-6">
       <div className="max-w-4xl mx-auto space-y-8">
@@ -22,5 +22,3 @@ function Accounts({ accounts, onAddAccount, onUpdate, onDelete }) {
     </div>
   );
 }
-
-export default Accounts;
