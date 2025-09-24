@@ -1,8 +1,6 @@
 import { AccountForm } from "../components/AccountForm";
 import { AccountList } from "../components/AccountList";
-import { TransactionForm } from "../components/TransactionForm";
-import { Transaction } from "../App";
-import { Account } from "../App";
+import type { Account, Transaction } from "../App";
 
 type AccountsProps = {
   accounts: Account[];
@@ -19,8 +17,7 @@ export function Accounts({
   onUpdate,
   onDelete,
   transactions,
-  onAddTransaction,
-}: AccountsProps) {
+}: Readonly<AccountsProps>) {
   return (
     <div
       className="min-h-screen text-gray-800 p-6"

@@ -1,4 +1,5 @@
 import { AccountItem } from "./AccountItem";
+import type { Account } from "../App";
 
 export interface Transaction {
   id: string;
@@ -9,18 +10,13 @@ export interface Transaction {
 }
 
 export interface AccountListProps {
-  accounts: {
-    id: string;
-    name: string;
-    type: string;
-    balance: number;
-  }[];
-  onUpdate: (account: AccountListProps["accounts"][0]) => void;
-  onDelete: (id: string) => void;
+  accounts: Account[];
+  onUpdate: (account: Account) => void;
+  onDelete: (id: Account["id"]) => void;
   transactions: Transaction[];
 }
 
-export function AccountList({ accounts, onUpdate, onDelete, transactions }: AccountListProps) {
+export function AccountList({ accounts, onUpdate, onDelete, transactions }: Readonly<AccountListProps>) {
   if (accounts.length === 0) 
     return <p className="text-gray-100"
     style={{background: "rgb(28,30,31"}}>No accounts yet</p>;

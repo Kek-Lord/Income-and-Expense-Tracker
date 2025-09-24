@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { Account } from "../App";
+import { type FormEvent, useState } from "react";
+import type { Account } from "../App";
 
 interface AccountFormProps {
   onAddAccount: (account: Account) => void;
 }
 
-export function AccountForm({ onAddAccount }: AccountFormProps) {
+export function AccountForm({ onAddAccount }: Readonly<AccountFormProps>) {
   const [name, setName] = useState("");
   const [type, setType] = useState("bank");
   const [balance, setBalance] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!name || balance === "") return;
