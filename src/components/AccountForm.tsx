@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function AccountForm({ onAddAccount }) {
+export function AccountForm({ onAddAccount }) {
   const [name, setName] = useState("");
   const [type, setType] = useState("bank");
   const [balance, setBalance] = useState("");
@@ -85,4 +85,3 @@ function AccountForm({ onAddAccount }) {
   );
 }
 
-export default AccountForm;
