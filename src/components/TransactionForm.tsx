@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { type FormEvent, useState } from "react";
 import { v4 as uuid } from "uuid";
-import { Transaction } from "../App";
+import type { Transaction } from "../App";
 
 type TransactionFormProps = {
   accountId: string;
@@ -10,11 +10,11 @@ type TransactionFormProps = {
 export function TransactionForm({
   accountId,
   onAddTransaction,
-}: TransactionFormProps) {
+}: Readonly<TransactionFormProps>) {
   const [amount, setAmount] = useState<string>(""); // empty string instead of 0
   const [description, setDescription] = useState<string>("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!amount) return; // prevent submitting empty

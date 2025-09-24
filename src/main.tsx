@@ -4,7 +4,7 @@ import { StrictMode } from "react";
 import "./styles/index.css";
 import { App } from "./App";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <App />

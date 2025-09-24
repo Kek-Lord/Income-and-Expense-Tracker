@@ -23,7 +23,7 @@ export type Transaction = {
 export function App() {
   const [accounts, setAccounts] = useState<Account[]>(() => {
     const stored = localStorage.getItem("accounts");
-    return stored ? JSON.parse(stored) : [];
+    return stored !== null ? JSON.parse(stored) : [];
   });
 
   useEffect(() => {

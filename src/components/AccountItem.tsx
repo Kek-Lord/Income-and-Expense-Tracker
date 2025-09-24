@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { Account } from "../App";
 
 export interface Transaction {
   id: string;
@@ -9,29 +10,24 @@ export interface Transaction {
 }
 
 export interface AccountItemProps {
-  account: {
-    id: string;
-    name: string;
-    type: string;
-    balance: number;
-  };
-  onUpdate: (account: AccountItemProps["account"]) => void;
-  onDelete: (id: string) => void;
+  account: Account;
+  onUpdate: (account: Account) => void;
+  onDelete: (id: Account["id"]) => void;
   transactions: Transaction[];
 }
 
-export function AccountItem({ account, onUpdate, onDelete, transactions }: AccountItemProps) {
+export function AccountItem({ account, onUpdate, onDelete, transactions }: Readonly<AccountItemProps>) {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(account.name);
   const [editType, setEditType] = useState(account.type);
-  const [editBalance, setEditBalance] = useState(account.balance.toString());
+  const [editBalance, setEditBalance] = useState(account.balance);
 
   const handleSave = () => {
     onUpdate({
       ...account,
       name: editName,
       type: editType,
-  balance: parseFloat(editBalance),
+      balance: editBalance,
     });
     setIsEditing(false);
   };
@@ -61,7 +57,7 @@ export function AccountItem({ account, onUpdate, onDelete, transactions }: Accou
         <input
           type="number"
           value={editBalance}
-          onChange={(e) => setEditBalance(e.target.value)}
+          onChange={(e) => setEditBalance(Number(e.target.value))}
           className="bg-gray-800 text-gray-100 rounded px-2 py-1 w-24"
         />
         <button
