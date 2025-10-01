@@ -43,7 +43,7 @@ export function AccountForm({ onAddAccount }: Readonly<AccountFormProps>) {
           placeholder="e.g. Chase Bank"
           className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 
                      bg-gray-50 dark:bg-gray-900 
-                     focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                     focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-100"
         />
       </div>
 
@@ -55,7 +55,7 @@ export function AccountForm({ onAddAccount }: Readonly<AccountFormProps>) {
           onChange={(e) => setType(e.target.value)}
           className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 
                      bg-gray-50 dark:bg-gray-900 
-                     focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                     focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-100"
         >
           <option value="bank">Bank</option>
           <option value="crypto">Crypto</option>
@@ -75,7 +75,7 @@ export function AccountForm({ onAddAccount }: Readonly<AccountFormProps>) {
           step="0.01"
           className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 
                      bg-gray-50 dark:bg-gray-900 
-                     focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                     focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-100"
         />
       </div>
 

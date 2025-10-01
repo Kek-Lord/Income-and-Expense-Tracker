@@ -28,10 +28,10 @@ export function Accounts({
       </h1>
 
   {/* Flex container for AccountForm and AccountList */}
-  <div className="max-w-6xl mx-auto flex flex-row gap-0">
+  <div className="flex flex-row gap-0">
         {/* Add new account form */}
         <div
-          className="flex-1 shadow-lg rounded-tl-xl rounded-bl-xl  p-6"
+          className="flex-[1.618] shadow-lg rounded-tl-xl rounded-bl-xl  p-6"
           style={{ background: "rgb(28, 30, 31)" }}
         >
           <AccountForm onAddAccount={onAddAccount} />
@@ -39,7 +39,7 @@ export function Accounts({
 
         {/* Accounts list with edit/delete buttons */}
         <div
-          className="flex-2 bg-gray-800 shadow-lg rounded-tr-xl rounded-br-xl p-6 text-center"
+          className="flex-[1] bg-gray-800 shadow-lg rounded-tr-xl rounded-br-xl p-6 text-center"
           style={{ background: "rgb(23,25,26)" }}
         >
           <AccountList
